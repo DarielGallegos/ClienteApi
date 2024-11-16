@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClienteApi.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Entry
+                x:Name="userTxt"
+                Placeholder="Usuario"
+                SemanticProperties.Description="Ingrese su usuario" 
+                Keyboard="Text"/>
+            
+            <Entry 
+                x:Name="passwordTxt"
+                   IsPassword="True"
+                   Placeholder="Contraseña"
+                   SemanticProperties.Description="Ingrese su contraseña"
+                   Keyboard="Text"/>
+            
+            <Button
+                x:Name="LoginBtn"
+                Text="Iniciar Sesion" 
+                SemanticProperties.Hint=""
+                Clicked="LoginBtn_Clicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
