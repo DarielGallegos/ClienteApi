@@ -22,15 +22,17 @@ namespace ClienteApi
         }
 
         private async void login(HttpClient c, string user, string passwd) {
-                var baseUrl = "http://192.168.100.78:80/auth/";
+                var baseUrl = "http://192.168.100.78/auth/";
                 var uri = new Uri($"{baseUrl}?username={user}&password={passwd}");
             Console.WriteLine($"{baseUrl}?username={user}&password={passwd}");
             using HttpResponseMessage response = await c.GetAsync(uri);
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadFromJsonAsync<LoginResponse>();
+                Console.WriteLine(content);
                 if (content?.Status == true)
                 {
+                    Console.WriteLine(content.Token);
                     await Navigation.PushAsync(new ListEmpleados(content.Token));
                 }
             }
