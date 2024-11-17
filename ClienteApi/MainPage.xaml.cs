@@ -1,4 +1,5 @@
 ﻿using ClienteApi.Models;
+using System.Net;
 using System.Net.Http.Json;
 namespace ClienteApi
 {
@@ -19,6 +20,9 @@ namespace ClienteApi
             catch (HttpRequestException ex) {
                 Console.WriteLine(ex.Message);
             }
+            catch (WebException err) {
+                Console.WriteLine(err.Message);
+            }
         }
 
         private async void login(HttpClient c, string user, string passwd) {
@@ -29,10 +33,8 @@ namespace ClienteApi
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadFromJsonAsync<LoginResponse>();
-                Console.WriteLine(content);
                 if (content?.Status == true)
                 {
-                    Console.WriteLine(content.Token);
                     await Navigation.PushAsync(new ListEmpleados(content.Token));
                 }
             }
@@ -40,6 +42,7 @@ namespace ClienteApi
             {
                 await DisplayAlert("Error", "Usuario o contraseña incorrectos", "OK");
             }
+            
  
         }
     }

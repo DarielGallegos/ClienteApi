@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClienteApi.FormRegisterEmployee"
+             Title="FormRegisterEmployee">
+    <VerticalStackLayout Margin="10,0,10,0">
+            <Entry x:Name="nombreTxt" Placeholder="Nombre" Keyboard="Text"/>
+            <Entry x:Name="telefonoTxt" Placeholder="Telefono" Keyboard="Telephone"/>
+            <Entry x:Name="cedulaTxt" Placeholder="Cedula" Keyboard="Text"/>
+            <Entry x:Name="direccionTxt" Placeholder="Direccion" Keyboard="Text"/>
+            <DatePicker x:Name="dateField"
+                    MaximumDate="12/31/2024"
+                    />
+            <Button x:Name="AddBtn" Clicked="RegisterBtn_Clicked" Text="Registrar Empleado" Margin="0,20,0,0"/>
+    </VerticalStackLayout>
+</ContentPage>
